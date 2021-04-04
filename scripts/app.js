@@ -178,7 +178,7 @@ const produtos = [{
 const promocoes = document.querySelector('.promocoes');
 const listaDeProdutos = document.querySelector('.listaDeProdutos');
 const whatever = document.querySelector('.whatever');
-
+const busca = document.querySelector('.busca');
 
 const produtosPromocionais = produtos.filter(produtos => produtos.preço > 2000)
     .map(produto => ({
@@ -264,7 +264,7 @@ function loadAll() {
 
 function loadPromoProducts(tipo) {
 
-    promocoes.innerHTML = produtosPromocionais.filter(produto => produto.tipo == tipo).map(produto => (`
+    promocoes.innerHTML = produtosPromocionais.filter(produto => produto.tipo == tipo || produto.nome.toLowerCase().includes(tipo)).map(produto => (`
         <li class="d-inline-flex justify-content-around flex-fill mb-5">
                 <div class="card d-flex border-info" style="width: 15rem;">
                     <img src=${produto.imagem}
@@ -299,7 +299,7 @@ function loadPromoProducts(tipo) {
 }
 
 function loadProducts(tipo) {
-    listaDeProdutos.innerHTML = produtosFiltrados.filter(produto => produto.tipo == tipo).map(produto => (
+    listaDeProdutos.innerHTML = produtosFiltrados.filter(produto => produto.tipo == tipo || produto.nome.toLowerCase().includes(tipo)).map(produto => (
         `
         <li class="d-inline-flex justify-content-around flex-fill mb-5">
                 <div class="card d-flex border-info" style="width: 15rem;">
@@ -353,6 +353,17 @@ whatever.addEventListener('click', e => {
 
 
 
+});
+
+
+
+busca.addEventListener('submit', e => {
+    e.preventDefault();
+
+    loadPromoProducts(busca.input.value.trim().toLowerCase());
+    loadProducts(busca.input.value.trim().toLowerCase());
+
+    
 })
 
 loadAll();
