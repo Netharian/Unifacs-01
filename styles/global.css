@@ -25,3 +25,9 @@ a {
 li {
     list-style-type: none;
 }
+
+div>img {
+    max-height: 145px;
+    max-width: 145px;
+    align-self: center;
+}

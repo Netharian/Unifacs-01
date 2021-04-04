@@ -177,6 +177,8 @@ const produtos = [{
 
 const promocoes = document.querySelector('.promocoes');
 const listaDeProdutos = document.querySelector('.listaDeProdutos');
+const whatever = document.querySelector('.whatever');
+
 
 const produtosPromocionais = produtos.filter(produtos => produtos.preço > 2000)
     .map(produto => ({
@@ -187,10 +189,45 @@ const produtosPromocionais = produtos.filter(produtos => produtos.preço > 2000)
         imagem: produto.imagem
     }));
 
-console.log(produtosPromocionais);
 
-produtosPromocionais.forEach(produto => {
-    promocoes.innerHTML += `
+const produtosFiltrados = produtos.filter(produto => produto.preço <= 2000);
+
+function loadAll() {
+
+    promocoes.innerHTML = produtosPromocionais.map(produto => (`
+   <li class="d-inline-flex justify-content-around flex-fill mb-5">
+                <div class="card d-flex border-info" style="width: 15rem;">
+                    <img src=${produto.imagem}
+                        class="card-img-top" alt=${produto.nome}>
+                    <div class="card-body border-info bg-secondary">
+                    <div>
+                    <p class="card-title text-justify text-white">${produto.nome}</p>
+                    </div>
+                        <div >
+                        <h4 class="text-center font-weight-bold text-warning">${new Intl.NumberFormat('pt-BR', {
+                            style: 'currency',
+                            currency: 'BRL'
+                        }).format(produto.preço)} 
+                        </h4> 
+                        <div>
+                                             
+                        <div class="  text-center">
+                        <button 
+                        class="btn-lg bg-success"
+                        type="button"
+                        >
+                             <i class="fas fa-cart-plus px-2"></i><span class="pr-2 text-white font-weight-bold">Comprar</span>
+                            </button>
+                            </div>
+                    </div>
+                </div>
+            </li>
+    `)).join("");
+
+
+
+
+    listaDeProdutos.innerHTML = produtosFiltrados.map(produto => (`
    <li class="d-inline-flex justify-content-around flex-fill mb-5">
                 <div class="card d-flex border-info" style="width: 15rem;">
                     <img src=${produto.imagem}
@@ -219,15 +256,52 @@ produtosPromocionais.forEach(produto => {
                 </div>
             </li>
     `
-});
 
-const produtosFiltrados = produtos.filter(produto => produto.preço <=2000);
+    )).join("");
 
-produtosFiltrados.forEach(produto => {
+}
 
-       
-    listaDeProdutos.innerHTML += `
-   <li class="d-inline-flex justify-content-around flex-fill mb-5">
+
+function loadPromoProducts(tipo) {
+
+    promocoes.innerHTML = produtosPromocionais.filter(produto => produto.tipo == tipo).map(produto => (`
+        <li class="d-inline-flex justify-content-around flex-fill mb-5">
+                <div class="card d-flex border-info" style="width: 15rem;">
+                    <img src=${produto.imagem}
+                        class="card-img-top" alt=${produto.nome}>
+                    <div class="card-body border-info bg-secondary">
+                    <div>
+                    <p class="card-title text-justify text-white">${produto.nome}</p>
+                    </div>
+                        <div >
+                        <h4 class="text-center font-weight-bold text-warning">${new Intl.NumberFormat('pt-BR', {
+                            style: 'currency',
+                            currency: 'BRL'
+                        }).format(produto.preço)} 
+                        </h4> 
+                        <div>
+                                             
+                        <div class="text-center">
+                        <button 
+                        class="btn-lg bg-success"
+                        type="button"
+                        >
+                             <i class="fas fa-cart-plus px-2"></i><span class="pr-2 text-white font-weight-bold">Comprar</span>
+                            </button>
+                            </div>
+                    </div>
+                </div>
+            </li>
+            `)).join("");
+
+
+
+}
+
+function loadProducts(tipo) {
+    listaDeProdutos.innerHTML = produtosFiltrados.filter(produto => produto.tipo == tipo).map(produto => (
+        `
+        <li class="d-inline-flex justify-content-around flex-fill mb-5">
                 <div class="card d-flex border-info" style="width: 15rem;">
                     <img src=${produto.imagem}
                         class="card-img-top" alt=${produto.nome}>
@@ -255,5 +329,30 @@ produtosFiltrados.forEach(produto => {
                 </div>
             </li>
     `
-     
-});
+
+
+    )).join("");
+
+
+}
+
+whatever.addEventListener('click', e => {
+    e.preventDefault();
+
+    if (e.target.innerText.trim() == "Mostrar Todos") {
+
+        loadAll();
+
+
+    } else {
+        loadPromoProducts(e.target.innerText.trim());
+        loadProducts(e.target.innerText.trim())
+        console.log((e.target.innerText.trim()));
+
+    }
+
+
+
+})
+
+loadAll();
