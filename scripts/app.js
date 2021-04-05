@@ -180,6 +180,7 @@ const listaDeProdutos = document.querySelector('.listaDeProdutos');
 const whatever = document.querySelector('.whatever');
 const busca = document.querySelector('.busca');
 
+
 const produtosPromocionais = produtos.filter(produtos => produtos.preço > 2000)
     .map(produto => ({
         id: produto.id,
@@ -261,6 +262,8 @@ function loadAll() {
 
 }
 
+document.addEventListener('DOMContentLoaded', loadAll);
+
 
 function loadPromoProducts(tipo) {
 
@@ -338,8 +341,10 @@ function loadProducts(tipo) {
 
 whatever.addEventListener('click', e => {
     e.preventDefault();
-
-    if (e.target.innerText.trim() == "Mostrar Todos") {
+    console.log(e);
+    if(e.path.length < 10){
+        return
+    } else if (e.target.innerText.trim() == "Mostrar Todos") {
 
         loadAll();
 
@@ -358,12 +363,11 @@ whatever.addEventListener('click', e => {
 
 
 busca.addEventListener('submit', e => {
+    
     e.preventDefault();
-
     loadPromoProducts(busca.input.value.trim().toLowerCase());
     loadProducts(busca.input.value.trim().toLowerCase());
 
     
 })
 
-loadAll();

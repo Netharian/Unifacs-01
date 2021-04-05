@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -25,7 +25,7 @@
 
 <body>
 
- <header>
+    <header>
         <nav class="navbar navbar-expand-md text-light bg-dark">
             <a class="navbar-brand mr-auto" href="./index.html">CompraCerta</a>
             <ul class="navbar-nav ">
@@ -37,15 +37,67 @@
                 </li>
                 <form class=" busca form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Busque seu produto"
-                        aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        aria-label="Search" disabled>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" disabled>Buscar</button>
                 </form>
-               
+
             </ul>
 
         </nav>
     </header>
 
+    <div class="container my-5">
+
+        <div class="row row-cols-sm-2 justify-content-between border border-info bg-light">
+            <div class="col-sm-4 p-4">
+                <h4 class="mb-4">Já tem cadastro? Faça o login!</h4>
+
+                <form class="border rounded p-2 border-primary" action="">
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" required>
+                        <label class="mt-2" for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha" class="form-control" required>
+                        <button type="submit" class="btn btn-primary my-4">Entrar</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-sm-8 p-4">
+                <h4 class="mb-4">Ainda não é cadastrado? Cadastre-se agora!</h4>
+                <form class="border rounded p-2 border-primary" action="/index.html" method="post">
+                    <div class="form-group">
+
+                        <div class="form-row">
+                            <div class="col">
+                                
+                                <label for="nome">Nome</label>
+                                <input type="text" name="nome" id="nome" class="form-control" required>
+                                <label class="mt-2" for="senha">Senha</label>
+                                <input type="password" name="senha" id="senha" class="form-control" required>
+                                <label class="mt-2" for="cpf">CPF</label>
+                                <input type="text" name="cpf" id="cpf" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label for="Email">Email</label>
+                                <input type="email" name="email" id="email" class="form-control" required>
+                                <label class="mt-2" for="senha">Confirme a Senha</label>
+                                <input type="password" name="senha" id="senha" class="form-control" required>
+                                <label class="mt-2" for="rg">RG</label>
+                                <input type="text" name="rg" id="rg" class="form-control" required>
+                            </div>
+
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary my-4">Cadastrar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
 
 
 

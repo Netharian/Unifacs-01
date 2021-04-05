@@ -31,3 +31,13 @@ div>img {
     max-width: 145px;
     align-self: center;
 }
+
+.whatever {
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.4s;
+}
+
+.whatever>li:hover {
+    color: red;
+}
