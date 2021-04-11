@@ -1,3 +1,5 @@
+
+//Lista de Produtos
 const produtos = [{
         "id": 1,
         "nome": "Monitor Gamer LED LG 34´ UltraWide Curvo, Full HD, IPS, 2 HDMI, DisplayPort, FreeSync, 144Hz, 1ms, Altura Ajustável - 34GL750",
@@ -175,12 +177,12 @@ const produtos = [{
     }
 ];
 
-const promocoes = document.querySelector('.promocoes');
-const listaDeProdutos = document.querySelector('.listaDeProdutos');
-const whatever = document.querySelector('.whatever');
-const busca = document.querySelector('.busca');
+const promocoes = document.querySelector('.promocoes'); //seletor da área de promoções
+const listaDeProdutos = document.querySelector('.listaDeProdutos'); //seletor da lista de produtos
+const menuDeSelecao = document.querySelector('.menuDeSelecao'); //seletor do menu de seleção dos tipos de produtos
+const busca = document.querySelector('.busca'); //seletor da barra de busca
 
-
+//Aplicando desconto nos itens acima de 2000 reais que serão exibidos na tela de promoções
 const produtosPromocionais = produtos.filter(produtos => produtos.preço > 2000)
     .map(produto => ({
         id: produto.id,
@@ -190,9 +192,10 @@ const produtosPromocionais = produtos.filter(produtos => produtos.preço > 2000)
         imagem: produto.imagem
     }));
 
-
+//Selecionando os produtos que não estão em promoção
 const produtosFiltrados = produtos.filter(produto => produto.preço <= 2000);
 
+//Função para carregar todos os produtos em suas respectivas áreas
 function loadAll() {
 
     promocoes.innerHTML = produtosPromocionais.map(produto => (`
@@ -230,10 +233,10 @@ function loadAll() {
 
     listaDeProdutos.innerHTML = produtosFiltrados.map(produto => (`
    <li class="d-inline-flex justify-content-around flex-fill mb-5">
-                <div class="card d-flex border-info" style="width: 15rem;">
+                <div class="card  d-flex border-info" style="width: 15rem;">
                     <img src=${produto.imagem}
                         class="card-img-top" alt=${produto.nome}>
-                    <div class="card-body border-info bg-secondary">
+                    <div class="card-body  border-info bg-secondary">
                     <div>
                     <p class="card-title text-justify text-white">${produto.nome}</p>
                     </div>
@@ -262,9 +265,10 @@ function loadAll() {
 
 }
 
+//Evento que acontece ao carregar o site
 document.addEventListener('DOMContentLoaded', loadAll);
 
-
+//Função que mostra os produtos em promoção de acordo com seu tipo
 function loadPromoProducts(tipo) {
 
     promocoes.innerHTML = produtosPromocionais.filter(produto => produto.tipo == tipo || produto.nome.toLowerCase().includes(tipo)).map(produto => (`
@@ -301,6 +305,7 @@ function loadPromoProducts(tipo) {
 
 }
 
+//Função que mostra os produtos de acordo com seu tipo
 function loadProducts(tipo) {
     listaDeProdutos.innerHTML = produtosFiltrados.filter(produto => produto.tipo == tipo || produto.nome.toLowerCase().includes(tipo)).map(produto => (
         `
@@ -339,9 +344,9 @@ function loadProducts(tipo) {
 
 }
 
-whatever.addEventListener('click', e => {
+menuDeSelecao.addEventListener('click', e => {
     e.preventDefault();
-    console.log(e);
+    
     if(e.path.length < 10){
         return
     } else if (e.target.innerText.trim() == "Mostrar Todos") {

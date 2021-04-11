@@ -32,12 +32,12 @@ div>img {
     align-self: center;
 }
 
-.whatever {
+.menuDeSelecao {
     cursor: pointer;
     font-weight: bold;
     transition: color 0.4s;
 }
 
-.whatever>li:hover {
+.menuDeSelecao>li:hover {
     color: red;
 }
