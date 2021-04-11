@@ -58,7 +58,8 @@ button svg {
 .total {
     display: flex;
     align-items: baseline;
-    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 10px;
     justify-content: space-between;
 
 }

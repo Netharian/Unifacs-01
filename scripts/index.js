@@ -364,7 +364,7 @@ menuDeSelecao.addEventListener('click', e => {
 
 
 });
-
+console.log(busca)
 
 
 busca.addEventListener('submit', e => {

@@ -1,0 +1,47 @@
+.form-div {
+    display: flex;
+    justify-content: center;
+}
+
+
+.statusBar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.statusBar img {
+    height: 75px;
+
+}
+
+.statusBar div span {
+    display: block;
+    text-align: center;
+
+}
+
+.enviado,
+.entregue {
+    filter: grayscale(100%)
+}
+
+.ultimoStatus span {
+    display: block;
+    text-align: center;
+}
+
+table {
+    width: 75%;
+}
+
+thead th {
+    text-align: left;
+    padding: 12px;
+}
+
+tbody td {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
