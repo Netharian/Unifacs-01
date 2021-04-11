@@ -188,7 +188,7 @@ const produtosPromocionais = produtos.filter(produtos => produtos.preço > 2000)
         id: produto.id,
         nome: produto.nome,
         tipo: produto.tipo,
-        preço: produto.preço * 0.8,
+        preço: produto.preço,
         imagem: produto.imagem
     }));
 
@@ -208,10 +208,17 @@ function loadAll() {
                     <p class="card-title text-justify text-white">${produto.nome}</p>
                     </div>
                         <div >
+                        
+                        <h4 class="text-center font-weight-bold text-warning">De <s>${new Intl.NumberFormat('pt-BR', {
+                            style: 'currency',
+                            currency: 'BRL'
+                        }).format(produto.preço)}</s> 
+                        </h4> 
+                        <p class=" h5 text-center text-danger font-weight-bold">Por apenas</p>
                         <h4 class="text-center font-weight-bold text-warning">${new Intl.NumberFormat('pt-BR', {
                             style: 'currency',
                             currency: 'BRL'
-                        }).format(produto.preço)} 
+                        }).format(produto.preço*0.8)} 
                         </h4> 
                         <div>
                                              
@@ -357,14 +364,13 @@ menuDeSelecao.addEventListener('click', e => {
     } else {
         loadPromoProducts(e.target.innerText.trim());
         loadProducts(e.target.innerText.trim())
-        console.log((e.target.innerText.trim()));
+        
 
     }
 
 
 
 });
-console.log(busca)
 
 
 busca.addEventListener('submit', e => {
