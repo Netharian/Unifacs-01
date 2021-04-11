@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', loadAll);
 function loadPromoProducts(tipo) {
 
     promocoes.innerHTML = produtosPromocionais.filter(produto => produto.tipo == tipo || produto.nome.toLowerCase().includes(tipo)).map(produto => (`
-        <li class="d-inline-flex justify-content-around flex-fill mb-5">
+       <li class="d-inline-flex justify-content-around flex-fill mb-5">
                 <div class="card d-flex border-info" style="width: 15rem;">
                     <img src=${produto.imagem}
                         class="card-img-top" alt=${produto.nome}>
@@ -288,14 +288,21 @@ function loadPromoProducts(tipo) {
                     <p class="card-title text-justify text-white">${produto.nome}</p>
                     </div>
                         <div >
+                        
+                        <h4 class="text-center font-weight-bold text-warning">De <s>${new Intl.NumberFormat('pt-BR', {
+                            style: 'currency',
+                            currency: 'BRL'
+                        }).format(produto.preço)}</s> 
+                        </h4> 
+                        <p class=" h5 text-center text-danger font-weight-bold">Por apenas</p>
                         <h4 class="text-center font-weight-bold text-warning">${new Intl.NumberFormat('pt-BR', {
                             style: 'currency',
                             currency: 'BRL'
-                        }).format(produto.preço)} 
+                        }).format(produto.preço*0.8)} 
                         </h4> 
                         <div>
                                              
-                        <div class="text-center">
+                        <div class="  text-center">
                         <button 
                         class="btn-lg bg-success"
                         type="button"
