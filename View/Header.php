@@ -48,8 +48,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./rastreio">Rastrear Pedido <i class="pl-1 fas fa-search"></i></a>
                 </li>
-                <form method="post" action="./index" class="busca form-inline">
-                    <input class="form-control mr-sm-2" type="search" name="input" placeholder="Busque seu produto"
+                <form method="post" action="buscar" class="busca form-inline">
+                    <input class="form-control mr-sm-2" type="search" name="busca" placeholder="Busque seu produto"
                         aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                 </form>

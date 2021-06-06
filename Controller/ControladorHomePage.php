@@ -40,9 +40,4 @@ class ControladorHomePage
         require "View/index.php";
     }
 
-    public function buscarTexto()
-    {
-
-    }
-
 }

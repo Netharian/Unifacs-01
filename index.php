@@ -62,8 +62,8 @@ if (isset($_GET['url'])) //se estiver preenchida, pega o valor
             $controlador->processaRequisicao();
             break;
         case "BUSCAR":
-            require "Controller/ControladorHomePage.php";
-            $controlador = new ControladorHomePage();
+            require "Controller/ControladorBusca.php";
+            $controlador = new ControladorBusca();
             $controlador->buscarTexto();
             break;
         default:

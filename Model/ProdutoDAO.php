@@ -69,7 +69,7 @@ class ProdutoDAO
     {
         try {
             $minhaConexao = Conexao::getConexao();
-            $sql = $minhaConexao->prepare("select * from compracerta.products where type like '%$texto%'");
+            $sql = $minhaConexao->prepare("select * from compracerta.products where name like '%$texto%'");
 
             $sql->execute();
             $result = $sql->setFetchMode(PDO::FETCH_ASSOC);
