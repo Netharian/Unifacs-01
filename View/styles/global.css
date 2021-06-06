@@ -33,11 +33,6 @@ div>img {
 }
 
 .menuDeSelecao {
-    cursor: pointer;
     font-weight: bold;
     transition: color 0.4s;
-}
-
-.menuDeSelecao>li:hover {
-    color: red;
 }
