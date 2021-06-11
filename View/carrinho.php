@@ -1,4 +1,6 @@
-<?php require "Header.php";?>
+<?php require "Header.php";
+
+?>
 <style><?php include "styles/carrinho.css"?></style>
 
     <div class="container mt-5 pb-5 bg-light">
@@ -157,8 +159,10 @@
 
 
     </div>
+
     <section class="container total bg-light mb-5">
-        <button type="button">Finalizar pedido</button>
+
+        <a href="./finalizarpedido" class="btn-lg btn-success">Finalizar pedido</a>
         <footer>
             <span>TOTAL</span>
             <strong>R$ 3.699,62</strong>
@@ -167,14 +171,9 @@
     </section>
 
 
-    <footer class="text-center">
-        <p>Supermercado CompraCerta </p>
-        <p>CNPJ: 03.912.078/0001-70</p>
-        <p>Telefone: 3323-5253</p>
-        <p>Site desenvolvido por Lucas Melo</p>
-    </footer>
 
-    <script src="../scripts/carrinho.js"></script>
-</body>
 
-</html>
+   <?php
+require "Footer.php";
+
+?>

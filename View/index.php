@@ -3,6 +3,7 @@
 require "Header.php";
 
 ?>
+
     <section class="container my-5 bg-light">
         <div class="row ">
             <div class="col-sm-3">
@@ -61,7 +62,7 @@ require "Header.php";
                                         <div class="  text-center">
                                             <button class="btn-lg bg-success" type="button">
                                                 <i class="fas fa-cart-plus px-2"></i><span
-                                                    class="pr-2 text-white font-weight-bold">Comprar</span>
+                                                    class="pr-2 text-white font-weight-bold">Adicionar</span>
                                             </button>
                                         </div>
                                     </div>
@@ -85,19 +86,15 @@ require "Header.php";
                                 </div>
                                 <div>
 
-                                    <h4 class="text-center font-weight-bold text-warning">De <s>R$
-                                            <?php echo $listaProdutos[$i]->getPrice(); ?></s>
-                                    </h4>
-                                    <p class=" h5 text-center text-danger font-weight-bold">Por apenas</p>
                                     <h4 class="text-center font-weight-bold text-warning">R$
-                                        <?php echo $listaProdutos[$i]->getPrice() * 0.8; ?>
+                                            <?php echo $listaProdutos[$i]->getPrice(); ?>
                                     </h4>
-                                    <div>
+
 
                                         <div class="  text-center">
-                                            <button class="btn-lg bg-success" type="button">
+                                            <button class="btn-lg bg-success" type="submit">
                                                 <i class="fas fa-cart-plus px-2"></i><span
-                                                    class="pr-2 text-white font-weight-bold">Comprar</span>
+                                                    class="pr-2 text-white font-weight-bold">Adicionar</span>
                                             </button>
                                         </div>
                                     </div>

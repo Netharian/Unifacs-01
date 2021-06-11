@@ -6,7 +6,7 @@
             <div class="col-sm-4 p-4">
                 <h4 class="mb-4">Já tem cadastro? Faça o login!</h4>
 
-                <form class="border rounded p-2 border-primary" action="" name="loginForm">
+                <form class="border rounded p-2 border-primary" method="post" action="./logar" name="loginForm">
                     <div class="form-group">
                         <label for="Email">Email</label>
                         <input type="email" name="email" id="email" class="form-control" required>
@@ -21,7 +21,7 @@
             <!-- Formulário de cadastro -->
             <div class="col-sm-8 p-4">
                 <h4 class="mb-4">Ainda não é cadastrado? Cadastre-se agora!</h4>
-                <form class="border rounded p-2 border-primary" action="./login.html" method="post" name="registerForm"
+                <form class="border rounded p-2 border-primary" action="novocliente" method="post" name="registerForm"
                     onsubmit="return validaSenha();">
                     <div class="form-group">
 

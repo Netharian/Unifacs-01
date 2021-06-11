@@ -32,13 +32,38 @@
 </head>
 
 <body>
+<?php
+
+session_start();
+if (isset($_SESSION['usuario'])) {
+    echo $_SESSION['usuario'];
+
+}
+?>
 
     <header>
         <nav class="navbar navbar-expand-md text-light bg-dark">
             <a class="navbar-brand mr-auto" href="./index">CompraCerta</a>
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link" href="./login">Login | Cadastre-se <i class="pl-1 fas fa-user"></i></a>
+                <?php
+if (isset($_SESSION['usuario'])) {
+
+    echo "<a class='nav-link' href='./meuperfil'>Meu Perfil <i class='pl-1 fas fa-user'></i></a>";
+} else {
+    echo " <a class='nav-link' href='./login'>Login | Cadastre-se <i class='pl-1 fas fa-user'></i></a>";
+}?>
+
+
+                </li>
+                 <li class="nav-item">
+                <?php
+if (isset($_SESSION['usuario'])) {
+
+    echo "<a class='nav-link' href='./deslogar'>Deslogar <i class='pl-1 fas fa-user'></i></a>";
+}?>
+
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./carrinho">Meu Carrinho <i

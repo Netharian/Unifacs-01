@@ -11,6 +11,7 @@ class Cliente
     private $telephone;
     private $celphone;
     private $address;
+    private $password;
 
     public function getId()
     {
@@ -89,14 +90,35 @@ class Cliente
 
     }
 
-    public function __construct($name, $cpf, $email, $rg, $telephone, $celphone)
+    public function getPassword()
     {
-        $this->name = $name;
-        $this->cpf = $cpf;
-        $this->email = $email;
-        $this->rg = $rg;
-        $this->telephone = $telephone;
-        $this->celphone = $celphone;
+        return $this->password;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
 
     }
+
+    public function cadastrar($cliente)
+    {
+        $clienteDAO = new ClienteDAO();
+        $clienteDAO->cadastrar($cliente);
+
+    }
+    public function login($cliente)
+    {
+        $clienteDAO = new ClienteDAO();
+        $clienteDAO->login($cliente);
+
+    }
+
+    public function deslogar($cliente)
+    {
+        $clienteDAO = new ClienteDAO();
+        $clienteDAO->deslogar($cliente);
+
+    }
+
 }

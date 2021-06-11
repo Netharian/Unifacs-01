@@ -12,8 +12,18 @@ if (isset($_GET['url'])) //se estiver preenchida, pega o valor
             $controlador->processaRequisicao();
             break;
         case "NOVOCLIENTE":
-            require "Controller/ControladorNovoCliente.php";
-            $controlador = new ControladorNovoLivro();
+            require "Controller/ControladorLogin.php";
+            $controlador = new ControladorLogin();
+            $controlador->cadastrar();
+            break;
+        case "DESLOGAR":
+            require "Controller/ControladorLogin.php";
+            $controlador = new ControladorLogin();
+            $controlador->deslogar();
+            break;
+        case "MEUPERFIL":
+            require "Controller/ControladorPerfil.php";
+            $controlador = new ControladorPerfil();
             $controlador->processaRequisicao();
             break;
         case "EXCLUIRPRODUTO":
@@ -65,6 +75,16 @@ if (isset($_GET['url'])) //se estiver preenchida, pega o valor
             require "Controller/ControladorBusca.php";
             $controlador = new ControladorBusca();
             $controlador->buscarTexto();
+            break;
+        case "LOGAR":
+            require "Controller/ControladorLogin.php";
+            $controlador = new ControladorLogin();
+            $controlador->login();
+            break;
+        case "FINALIZARPEDIDO":
+            require "Controller/ControladorPedido.php";
+            $controlador = new ControladorPedido();
+            $controlador->processaRequisicao();
             break;
         default:
             require "Controller/ControladorHomePage.php";
